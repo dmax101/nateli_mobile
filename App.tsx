@@ -12,16 +12,20 @@ import img from './assets/bkgnd.png';
 // Import das Fontes
 import {
   useFonts,
-  OpenSans_400Regular,
-  OpenSans_700Bold
-} from '@expo-google-fonts/open-sans';
+  OpenSansCondensed_300Light,
+  OpenSansCondensed_700Bold
+} from '@expo-google-fonts/open-sans-condensed';
+
+import { NotoSansJP_400Regular, NotoSansJP_700Bold } from '@expo-google-fonts/noto-sans-jp';
 
 import styles from './styles';
 
 export default function App() {
   let [fontsLoaded] = useFonts ({
-    OpenSans_400Regular,
-    OpenSans_700Bold
+    OpenSansCondensed_300Light,
+    OpenSansCondensed_700Bold,
+    NotoSansJP_400Regular,
+    NotoSansJP_700Bold
   })
 
   if (!fontsLoaded) {
