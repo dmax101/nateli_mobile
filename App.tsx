@@ -8,6 +8,7 @@ import { View, ImageBackground } from 'react-native';
 import Landing from './src/pages/Landing';
 
 import img from './assets/bkgnd.png';
+import splashImg from './assets/splash.png';
 
 // Import das Fontes
 import {
@@ -29,7 +30,12 @@ export default function App() {
   })
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return (
+      <AppLoading>
+        <ImageBackground source={img} style={styles.image}/>
+        <ImageBackground source={splashImg} style={styles.image}/>
+      </AppLoading>
+    ) 
   } else {
     return (
       <View style={styles.container}>
