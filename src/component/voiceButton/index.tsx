@@ -11,8 +11,6 @@ import voiceButtonIcon from '../../../assets/icon/voiceButton.png';
 import styles from './styles';
 
 function VoiceButton() {
-
-    
     function handleVoiceCommand() {
         console.log("Pressionou o Botão!");
 
