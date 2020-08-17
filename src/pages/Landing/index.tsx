@@ -1,28 +1,35 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { BlurView } from 'expo-blur';
 
 import VoiceButton from '../../component/voiceButton';
 
-import cloudIcon from '../../../assets/icon/cloudIcon.png';
+import config from '../../configs';
 
+import getGreeting from '../../services/getGreeting';
+import getDate from "../../services/getDate";
+
+import cloudIcon from '../../../assets/icon/cloudIcon.png';
 import styles from './styles';
 
 function Landing() {
+    const { date, month, weekDay } = getDate();
+
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             
             <BlurView intensity={80} style={styles.mainCard}>
                 <View style={styles.header}>
                     <View style={styles.right}>
-                        <Text style={styles.greetings}>Boa noite,</Text>
-                        <Text style={styles.name}>Danilo</Text>
+                        <Text style={styles.greetings}>{ getGreeting() }</Text>
+                        <Text style={styles.name}>{ config.name }</Text>
                         <Text style={styles.serverStatusText}>Online</Text>
                     </View>
                     <View style={styles.left}>
-                        <Text style={styles.day}>07</Text>
-                        <Text style={styles.month}>Setembro</Text>
-                        <Text style={styles.week_day}>domingo</Text>
+                        <Text style={styles.day}>{date}</Text>
+                        <Text style={styles.month}>{month}</Text>
+                        <Text style={styles.weekDay}>{weekDay}</Text>
                     </View>
                 </View>
 
@@ -43,8 +50,7 @@ function Landing() {
                     <VoiceButton/>
                 </BlurView>
             </View>
-            
-        </View>
+        </ScrollView>
     )
 }
 

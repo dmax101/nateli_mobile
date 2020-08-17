@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     },
 
     right: {
+        marginTop: 15,
         alignContent: "space-around",
         alignItems: "flex-start",
     },
@@ -52,6 +53,8 @@ const styles = StyleSheet.create({
     },
 
     left: {
+        marginTop: -10,
+        marginBottom: 10,
         alignContent: "flex-end",
         alignItems: "flex-end",
     },
@@ -71,11 +74,11 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
 
-    week_day: {
+    weekDay: {
         color: "white",
         fontFamily: "NotoSansJP_400Regular",
         fontSize: 15,
-        marginTop: -5,
+        marginTop: 0,
         textAlign: "center",
     },
 
