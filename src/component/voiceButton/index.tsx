@@ -7,7 +7,7 @@ import { Audio } from 'expo-av';
 import config from '../../configs';
 
 import Speak from '../../services/speechService';
-import getGreeting from '../../services/getGreeting';
+import getGreeting from '../../utils/getGreeting';
 import api from '../../services/api';
 
 import voiceButtonIcon from '../../../assets/icon/voiceButton.png';
@@ -34,7 +34,7 @@ function VoiceButton() {
 
     async function handleVoiceCommand() {
         console.log("Pressionou o Botão!");
-        alertIfMicrophonePermissionDisabledAsync()
+        alertIfMicrophonePermissionDisabledAsync();
 
         try {
 
@@ -50,12 +50,15 @@ function VoiceButton() {
         try {
             await recording.prepareToRecordAsync(Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY);
             await recording.startAsync();
+            console.log(recording.getStatusAsync());
+            console.log("falando!");
+            
+            
             // You are now recording!
           } catch (error) {
             // An error occurred!
             console.log('Não foi possível gravar');
             console.log(error);
-            
           }
 
         /*

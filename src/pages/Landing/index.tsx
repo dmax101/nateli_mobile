@@ -7,8 +7,8 @@ import VoiceButton from '../../component/voiceButton';
 
 import config from '../../configs';
 
-import getGreeting from '../../services/getGreeting';
-import getDate from "../../services/getDate";
+import getGreeting from '../../utils/getGreeting';
+import getDate from "../../utils/getDate";
 
 import cloudIcon from '../../../assets/icon/cloudIcon.png';
 import styles from './styles';
