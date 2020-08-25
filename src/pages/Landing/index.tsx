@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { BlurView } from 'expo-blur';
 
 import VoiceButton from '../../component/voiceButton';
@@ -17,7 +16,7 @@ function Landing() {
     const { date, month, weekDay } = getDate();
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             
             <BlurView intensity={80} style={styles.mainCard}>
                 <View style={styles.header}>
@@ -50,7 +49,7 @@ function Landing() {
                     <VoiceButton/>
                 </BlurView>
             </View>
-        </ScrollView>
+        </View>
     )
 }
 

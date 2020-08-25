@@ -11,6 +11,8 @@ function getGreeting() {
         } else {
             greeting = 'Boa noite,';
         }
+        console.log(greeting);
+        
         return greeting;
     } catch (error) {
         console.log('Não foi possível Saudar');
