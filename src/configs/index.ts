@@ -7,6 +7,9 @@ const config = {
         'pitch': 1,
         'rate': 1,
     },
+    voiceApi: {
+        key: 'AIzaSyCA5DIUidjFMQlpjmF8SrXQMWs1x1f9CWQ'
+    }
 }
 
 export default config;

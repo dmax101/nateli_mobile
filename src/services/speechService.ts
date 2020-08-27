@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Speech from 'expo-speech'; // Talk to user lib
 import config from '../configs';
+import info from '../utils/info';
 
 
 function Speak(sentence: string) {
@@ -13,8 +14,7 @@ function Speak(sentence: string) {
     }
 
     Speech.speak(sentence, options)
-    console.log(sentence);
-    
+    info('speech', `Reading: ${sentence}`)    
 }
 
 export default Speak;
