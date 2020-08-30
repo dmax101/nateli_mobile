@@ -14,7 +14,7 @@ function Speak(sentence: string) {
     }
 
     Speech.speak(sentence, options)
-    info('speech', `Reading: ${sentence}`)    
+    info('speech', `Speaking: ${sentence}`)    
 }
 
 export default Speak;

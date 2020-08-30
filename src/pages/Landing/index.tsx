@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { BlurView } from 'expo-blur';
 
-import VoiceButton from '../../component/voiceButton';
+import VoiceButton from '../../components/voiceButton';
 
 import config from '../../configs';
 
@@ -46,7 +46,7 @@ function Landing() {
 
             <View style={styles.bottonBarGroup}>
                 <BlurView style={styles.bottonBar}>
-                    <VoiceButton/>
+                    <VoiceButton />
                 </BlurView>
             </View>
         </View>

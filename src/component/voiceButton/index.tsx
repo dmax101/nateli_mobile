@@ -17,12 +17,13 @@ import voiceButtonIcon from '../../../assets/icon/voiceButton.png';
 import styles from './styles';
 
 const [sound, setSound] = useState(null);
-const [uri, setURI] = useState(null);
+const [uri, setURI] = useState('');
 
 function VoiceButton() {
     const greeting = getGreeting();
 
-    Speak(greeting);
+    var message = greeting + ' ' + config.name + ', meu nome é Nateli, como posso ajudar';
+    Speak(message);
 
     Audio.setAudioModeAsync({
         playsInSilentModeIOS: true,
@@ -104,10 +105,9 @@ function VoiceButton() {
                     })
                     .then(async () => {
                         try {
-                            const information = await FileSystem.getInfoAsync(recording.getURI());
-                            const length = information.size;
+                            const information = await FileSystem.getInfoAsync(String(recording.getURI()));
                             info('recording', `File Info: ${JSON.stringify(information)}`)
-                            setURI(recording.getURI());
+                            setURI(String(information.uri));
 
                             const file = await FileSystem.readAsStringAsync(uri,
                                 {
@@ -145,7 +145,7 @@ function VoiceButton() {
     async function verifyRecording() {           
     }
 
-    async function sendToSpeechToTextApi(file) {
+    async function sendToSpeechToTextApi(file: any) {
         info('google api', 'Enviando para a api do google')
 
         const destination = '/speech:recognize?key=' + config.voiceApi.key;
@@ -157,7 +157,7 @@ function VoiceButton() {
             googleApi.post(destination,
                 {
                 "config": {
-                        "encoding": "FLAC",
+                        "encoding": "LINEAR16",
                         "sampleRateHertz": 16000,
                         "languageCode": "pt-br"
                 },
@@ -166,7 +166,7 @@ function VoiceButton() {
                     }
             }).then((response: { data: any; }) => {
                 info('google api', `recebendo dados: ${JSON.stringify(response.data)}`);
-                return(response.data)
+                return(JSON.stringify(response.data))
             });
         } catch (error) {
             info('reading file', 'Cant read the file', error)
@@ -184,44 +184,6 @@ function VoiceButton() {
             info('permitions', 'Ouve algum erro ao solicitar permissão para uso do microfone')
         }
         
-
-
-        /*
-        console.log("Pressionou o Botão!");
-
-
-        
-        var message = greeting + ' ' + config.name + ', meu nome é Nateli, como posso ajudar';
-        Speak(message);
-
-        await recording.prepareToRecordAsync(Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY);
-        
-        if((await (await recording.getStatusAsync()).isRecording)) {
-            await recording.stopAndUnloadAsync();
-            console.log('Parando gravação atual');
-        }
-        
-        try {
-            if (!(await recording.getStatusAsync()).canRecord) {
-                console.log('Não é possível gravar ainda!');
-            } else if((await recording.getStatusAsync()).isRecording) {
-                recording.stopAndUnloadAsync();
-                console.log('Parando gravação atual');
-            } else {
-                // You are now recording!
-                await recording.startAsync();
-
-                console.log(recording.getStatusAsync());
-                console.log('Gravação em andamento');
-            }
-            
-
-          } catch (error) {
-            // An error occurred!
-            console.log('Não foi possível gravar');
-            console.log(error);
-          }
-
         /*
         api.get('/message?v=20200811&q=ligar luz da garagem')
             .then((response) => {
@@ -247,10 +209,6 @@ function VoiceButton() {
               { shouldPlay: true }
               
               ).then(() => {
-                  console.log("aqui");
-                  console.log(status);
-                  
-                  console.log("aqui12");
             });
             // Your sound is playing!
           } catch (error) {

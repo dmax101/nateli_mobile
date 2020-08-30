@@ -1,4 +1,5 @@
 import React from 'react';
+import info from './info';
 
 function getGreeting() {
     try {
@@ -11,14 +12,15 @@ function getGreeting() {
         } else {
             greeting = 'Boa noite,';
         }
-        console.log(greeting);
+        info('greetings', `Getting greetins ${greeting}`)
         
         return greeting;
-    } catch (error) {
-        console.log('Não foi possível Saudar');
-        console.log(error);
-    }
 
+    } catch (error) {
+        info('greetings', "Can't get greeting", error)
+        
+        return "error"
+    }
 }
 
 export default getGreeting;
