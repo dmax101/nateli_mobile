@@ -9,6 +9,13 @@ const config = {
     },
     voiceApi: {
         key: 'AIzaSyCA5DIUidjFMQlpjmF8SrXQMWs1x1f9CWQ'
+    },
+    witApi: {
+        baseURL: 'https://api.wit.ai',
+        headers: {
+            Authorization: 'Bearer PG4WVUCICSUSXDDKHF76RXPPOOMMOR2V'
+        },
+        v: '20200728',
     }
 }
 

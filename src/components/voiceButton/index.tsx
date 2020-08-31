@@ -10,6 +10,10 @@ import info from '../../utils/info';
 import voiceButtonIcon from '../../../assets/icon/voiceButton.png';
 import styles from './styles';
 import speechToText from '../../services/speechToText';
+import Speak from '../../services/speakService';
+import api from '../../services/api';
+import config from '../../configs';
+import analysis from '../../services/analysis';
 
 function VoiceButton() {
 
@@ -66,6 +70,7 @@ function VoiceButton() {
 
     async function startRecording() {
         const recording = new Audio.Recording();
+        var uriString = ''
         try {
             await recording.prepareToRecordAsync(recordingSettings);
             await recording.startAsync();
@@ -79,7 +84,9 @@ function VoiceButton() {
         setTimeout(async () => {
             info('recording', 'Stopping recording');
 
-            var information = await FileSystem.getInfoAsync(String(recording.getURI()));
+            uriString = String(recording.getURI())
+
+            var information = await FileSystem.getInfoAsync(uriString);
 
             info('recording', `File Info: ${JSON.stringify(information)}`)
    
@@ -93,17 +100,34 @@ function VoiceButton() {
                     Is Recording:         ${await status.isRecording}.
                     `);
 
-                    await FileSystem.readAsStringAsync(information.uri,
+                    await FileSystem.readAsStringAsync(uriString,
                         {
                             "encoding": FileSystem.EncodingType.Base64,
                             //"length": length,
                             //"position": 0,
                         })
                         .then(async (file) => {
-                            console.log(file);
-                            await speechToText(file).then((response) => {
-                                info('google api', 'Response', response)
-                            })
+                            //console.log(file);
+                            await speechToText(file)
+                                .then(async (response) => {
+                                    const params = `/message?v=${config.witApi.v}&q=${response}`;
+                                    await api.get(params)
+                                        .then((response) => {
+                                            analysis(response.data);
+                                        })
+                                        .catch((error) => {
+                                            console.log(error);
+                                        });
+                                })
+                        })
+                        .then(async () => {
+                            await FileSystem.deleteAsync(uriString, { idempotent: false })
+                                .then(() => {
+                                    info('file system', 'deleting recording file')
+                                })
+                                .catch((error) => {
+                                    info('file syste', 'Error on deleting audio file!', error)
+                                });
                         })
                         .catch((error) => {
                             info('file system', 'Error getting the file recording', error);
@@ -127,12 +151,7 @@ function VoiceButton() {
     }
     
     async function handleVoiceCommandOff() {
-        info('event', 'Button pressed off');
-
-        const directory = await FileSystem.readDirectoryAsync('file:///var/mobile/Containers/Data/Application/1053BFB5-63EB-4EBF-BF68-3D91301909C8/Library/Caches/ExponentExperienceData/%2540dmax101%252Fnateli_mobile/AV/')
-
-        console.log(directory[0]);
-        
+        info('event', 'Button pressed off');        
     }
 
     return (
