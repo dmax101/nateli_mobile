@@ -11,8 +11,12 @@ import getDate from "../../utils/getDate";
 
 import cloudIcon from '../../../assets/icon/cloudIcon.png';
 import styles from './styles';
+import info from '../../utils/info';
 
 function Landing() {
+
+    info('system', 'loading landing page')
+
     const { date, month, weekDay } = getDate();
 
     return (

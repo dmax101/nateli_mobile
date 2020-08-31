@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Image, View, Linking } from 'react-native';
+import React from 'react';
+import { Image, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Audio } from 'expo-av';
 import * as Permissions from 'expo-permissions';
@@ -10,14 +10,11 @@ import info from '../../utils/info';
 import voiceButtonIcon from '../../../assets/icon/voiceButton.png';
 import styles from './styles';
 import speechToText from '../../services/speechToText';
-import apiTest from '../../services/apiTest';
-import api from '../../services/api';
 
 function VoiceButton() {
 
-    const [soundURI, setSoundURI] = useState('');
-    const [soundFile, setSoundFile] = useState('');
-
+    info('system', 'starting recognition module')
+    
     Audio.setAudioModeAsync({
         playsInSilentModeIOS: true,
         allowsRecordingIOS: true,
@@ -71,54 +68,52 @@ function VoiceButton() {
         const recording = new Audio.Recording();
         try {
             await recording.prepareToRecordAsync(recordingSettings);
-            await recording.startAsync().then(() => {
-                info('recording', 'Starting recording');
-            });
-            
-            setTimeout(() => {
-                try {
-                    info('recording', 'Stopping recording');
-                    recording.stopAndUnloadAsync().then(async () => {
+            await recording.startAsync();
 
-                        const information = await FileSystem.getInfoAsync(String(recording.getURI()));
-
-                        info('recording', `File Info: ${JSON.stringify(information)}`)
-                        setSoundURI(String(information.uri));
-
-                        await FileSystem.readAsStringAsync(soundURI,
-                            {
-                                "encoding": FileSystem.EncodingType.Base64,
-                                //"length": length,
-                                //"position": 0,
-                            })
-                            .then(async (file) => {
-                                info('file system', 'Reading complete');
-                                
-                                await speechToText(file).then((resp) => {
-                                    console.log(resp);
-                                    
-                                }).catch((error) => {
-                                    info('google api', `Error: ${error}`)
-                                });
-                                
-                            })
-                            .catch((error) => {
-                                info('file system', 'Something get wrong', error);
-                            });                 
-                    });
-                    
-                } catch (error) {
-                    info('recording', 'Error on recording');
-                }
-            }, 6000);
-
+            info('recording', 'Starting recording');
 
         } catch (error) {
-            
+            info('recording', `Can't start Recording: ${error}`);
         }
-    }
 
-    async function verifyRecording() {           
+        setTimeout(async () => {
+            info('recording', 'Stopping recording');
+
+            var information = await FileSystem.getInfoAsync(String(recording.getURI()));
+
+            info('recording', `File Info: ${JSON.stringify(information)}`)
+   
+            await recording.stopAndUnloadAsync()
+            .then(async (status) => {
+                
+                console.log(`
+                    Can recording:        ${await status.canRecord},
+                    Duration:             ${await status.durationMillis},
+                    Is Done Recording:    ${await status.isDoneRecording},
+                    Is Recording:         ${await status.isRecording}.
+                    `);
+
+                    await FileSystem.readAsStringAsync(information.uri,
+                        {
+                            "encoding": FileSystem.EncodingType.Base64,
+                            //"length": length,
+                            //"position": 0,
+                        })
+                        .then(async (file) => {
+                            console.log(file);
+                            await speechToText(file).then((response) => {
+                                info('google api', 'Response', response)
+                            })
+                        })
+                        .catch((error) => {
+                            info('file system', 'Error getting the file recording', error);
+                        });
+                })
+                .catch((error) => {
+                    info('recording', 'Error: stopping recording', error);
+                })
+
+        }, 6000);
     }
 
     async function handleVoiceCommandOn() {
@@ -134,6 +129,10 @@ function VoiceButton() {
     async function handleVoiceCommandOff() {
         info('event', 'Button pressed off');
 
+        const directory = await FileSystem.readDirectoryAsync('file:///var/mobile/Containers/Data/Application/1053BFB5-63EB-4EBF-BF68-3D91301909C8/Library/Caches/ExponentExperienceData/%2540dmax101%252Fnateli_mobile/AV/')
+
+        console.log(directory[0]);
+        
     }
 
     return (

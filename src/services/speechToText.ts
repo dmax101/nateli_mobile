@@ -5,7 +5,7 @@ import googleApi from './googleApi';
 
 async function speechToText(file: string) {
     info('google api', 'Enviando para a api do google')
-    console.log(file);
+    //console.log(file);
 
     const destination = '/speech:recognize?key=' + config.voiceApi.key;
     try {
