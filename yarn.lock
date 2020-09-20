@@ -2398,6 +2398,11 @@ eventemitter3@^3.0.0:
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
 
+events@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
+  integrity sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
+
 exec-sh@^0.3.2:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/exec-sh/-/exec-sh-0.3.4.tgz#3a018ceb526cc6f6df2bb504b2bfe8e3a4934ec5"
@@ -4474,6 +4479,18 @@ react-native-gesture-handler@~1.6.0:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-mqtt@^0.1.0-beta4:
+  version "0.1.0-beta4"
+  resolved "https://registry.yarnpkg.com/react-native-mqtt/-/react-native-mqtt-0.1.0-beta4.tgz#b96e17745fe31ae21abe2553cbbd8bee70fd5110"
+  integrity sha1-uW4XdF/jGuIaviVTy72L7nD9URA=
+
+react-native-paho-mqtt@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-paho-mqtt/-/react-native-paho-mqtt-0.1.1.tgz#181d5d9fcbee3c25e560e4aa3aeba5b0df3910e8"
+  integrity sha1-GB1dn8vuPCXlYOSqOuulsN85EOg=
+  dependencies:
+    events "^1.1.1"
+
 react-native-safe-area-context@~3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.0.7.tgz#0f53de7a30d626d82936000f3f6db374ecc4b800"
@@ -5008,6 +5025,11 @@ source-map@^0.6.0, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
+sp-react-native-mqtt@^0.4.25:
+  version "0.4.25"
+  resolved "https://registry.yarnpkg.com/sp-react-native-mqtt/-/sp-react-native-mqtt-0.4.25.tgz#7cfdaf3a8629443702d820dd5dc899b7167c0468"
+  integrity sha512-cR1vF6esV92TdHCDrKDcDC7mAY7qAAENW5/4fyROmSqsnMm01PDdvFsad48u6KCy1FvpcooGldYMiTjFDTZihg==
 
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"

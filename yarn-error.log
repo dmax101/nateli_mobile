@@ -1,8 +1,8 @@
 Arguments: 
-  /home/dmax/.nvm/versions/node/v14.8.0/bin/node /mnt/c/Program Files (x86)/Yarn/bin/yarn.js add binaryToBase64
+  /home/dmax/.nvm/versions/node/v14.8.0/bin/node /mnt/c/Program Files (x86)/Yarn/bin/yarnpkg add @types/react-native-mqtt
 
 PATH: 
-  /home/dmax/.vscode-server/bin/a0479759d6e9ea56afa657e454193f72aef85bd0/bin:/home/dmax/.local/bin:/home/dmax/.nvm/versions/node/v14.8.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/Yarn/bin/:/mnt/d/Strawberry/c/bin:/mnt/d/Strawberry/perl/site/bin:/mnt/d/Strawberry/perl/bin:/mnt/c/Users/dvrib/AppData/Local/Programs/Python/Python36/Scripts/:/mnt/c/Users/dvrib/AppData/Local/Programs/Python/Python36/:/mnt/c/Users/dvrib/AppData/Local/Microsoft/WindowsApps:/mnt/d/Users/dvrib/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/dvrib/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/dvrib/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/dvrib/AppData/Roaming/npm:/mnt/c/Users/dvrib/AppData/Local/Yarn/bin:/mnt/d/src/flutter/bin:/mnt/c/Users/dvrib/AppData/Local/Android/Sdk/tools:/mnt/d/Program Files/JetBrains/PyCharm Community Edition 2020.2/bin:/mnt/c/Users/dvrib/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/snap/bin
+  /home/dmax/.vscode-server/bin/e790b931385d72cf5669fcefc51cdf65990efa5d/bin:/home/dmax/.local/bin:/home/dmax/.nvm/versions/node/v14.8.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/Yarn/bin/:/mnt/d/Strawberry/c/bin:/mnt/d/Strawberry/perl/site/bin:/mnt/d/Strawberry/perl/bin:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dvrib/AppData/Local/Programs/Python/Python36/Scripts/:/mnt/c/Users/dvrib/AppData/Local/Programs/Python/Python36/:/mnt/c/Users/dvrib/AppData/Local/Microsoft/WindowsApps:/mnt/d/Users/dvrib/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/dvrib/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/dvrib/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/dvrib/AppData/Roaming/npm:/mnt/c/Users/dvrib/AppData/Local/Yarn/bin:/mnt/d/src/flutter/bin:/mnt/c/Users/dvrib/AppData/Local/Android/Sdk/tools:/mnt/d/Program Files/JetBrains/PyCharm Community Edition 2020.2/bin:/mnt/c/Users/dvrib/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/snap/bin
 
 Yarn version: 
   1.22.4
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/binaryToBase64: Not found
+  Error: https://registry.yarnpkg.com/@types%2freact-native-mqtt: Not found
       at Request.params.callback [as _callback] (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:66096:18)
       at Request.self.callback (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:140748:22)
       at Request.emit (events.js:314:20)
@@ -55,16 +55,16 @@ npm manifest:
       "react": "^16.13.1",
       "react-dom": "~16.11.0",
       "react-native": "^0.62.2",
-      "react-native-dialogflow": "^3.2.2",
       "react-native-gesture-handler": "~1.6.0",
+      "react-native-mqtt": "^0.1.0-beta4",
       "react-native-tts": "^3.2.0",
-      "react-native-voice": "^0.3.0",
-      "react-native-web": "~0.11.7"
+      "react-native-web": "~0.11.7",
+      "rimraf": "^3.0.2"
     },
     "devDependencies": {
       "@babel/core": "^7.8.6",
       "@types/react": "~16.9.41",
-      "@types/react-native": "~0.62.13",
+      "@types/react-native": "~0.62.2",
       "typescript": "~3.9.5"
     },
     "private": true
@@ -1359,7 +1359,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
     integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
   
-  "@types/react-native@~0.62.13":
+  "@types/react-native@~0.62.2":
     version "0.62.18"
     resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.62.18.tgz#ad63691e7c44edef2beeb6af52b2eb942c3ed8a1"
     integrity sha512-7QfU8EzIYxYqeXpPf8QNv2xi8hrePlgTbRATRo+plRSdVfJu7N6sAXqrFxKJp6bGLvp82GV1gczl93gqiAfXPA==
@@ -3573,11 +3573,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
     integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
   
-  jsrsasign@^8.0.12:
-    version "8.0.23"
-    resolved "https://registry.yarnpkg.com/jsrsasign/-/jsrsasign-8.0.23.tgz#4427ed0bbbd809d65b8e5ac9d48ba5383b49ee0c"
-    integrity sha512-COwd/XmwaxBwf/6E3FO21DGK504KdjfNMYv6hVd2q6W6lzTeaL2UKQ0cIBw6SFMBCdaQl8fGUm4dHFt7Wmo9xw==
-  
   kind-of@^1.1.0:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-1.1.0.tgz#140a3d2d41a36d2efcfa9377b62c24f8495a5c44"
@@ -4545,13 +4540,6 @@ Lockfile:
       invariant "^2.2.4"
       use-subscription "^1.0.0"
   
-  react-native-dialogflow@^3.2.2:
-    version "3.2.2"
-    resolved "https://registry.yarnpkg.com/react-native-dialogflow/-/react-native-dialogflow-3.2.2.tgz#91d74f053ebc18390332f2b21dcc17553b83a638"
-    integrity sha512-LWsrW7b9LA8+MTW4gA0z5jD7XrZ9ASfUMTck0hySEvnI+eqkY8Tz2cd166kHRW7yyIHlo5IhtkivWgm4EAyiNw==
-    dependencies:
-      jsrsasign "^8.0.12"
-  
   react-native-gesture-handler@~1.6.0:
     version "1.6.1"
     resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
@@ -4562,6 +4550,11 @@ Lockfile:
       invariant "^2.2.4"
       prop-types "^15.7.2"
   
+  react-native-mqtt@^0.1.0-beta4:
+    version "0.1.0-beta4"
+    resolved "https://registry.yarnpkg.com/react-native-mqtt/-/react-native-mqtt-0.1.0-beta4.tgz#b96e17745fe31ae21abe2553cbbd8bee70fd5110"
+    integrity sha1-uW4XdF/jGuIaviVTy72L7nD9URA=
+  
   react-native-safe-area-context@~3.0.7:
     version "3.0.7"
     resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.0.7.tgz#0f53de7a30d626d82936000f3f6db374ecc4b800"
@@ -4571,11 +4564,6 @@ Lockfile:
     version "3.2.0"
     resolved "https://registry.yarnpkg.com/react-native-tts/-/react-native-tts-3.2.0.tgz#6c271c6809c164f86699b4b6c420f7bae0f68b4e"
     integrity sha512-z8p9OfWd9N1QTs3EcZCt05iqNFs9qZ9s743Pt1xqqVlL+vE4ju2pybNE/pjxA2L+RvuD3L0wOdNvXcCNP5qi2g==
-  
-  react-native-voice@^0.3.0:
-    version "0.3.0"
-    resolved "https://registry.yarnpkg.com/react-native-voice/-/react-native-voice-0.3.0.tgz#2ca3ff8f8f6fc6d087e10b6d3ecd50af8e01a166"
-    integrity sha512-puSrXCNn1MM03UZkY8q+GW931OqBCEBCiupNK4vD8i49esGqRDDmzv8sRYyEgXj5ScVDKe6lnlKCmJSn5Wo2UA==
   
   react-native-web@~0.11.7:
     version "0.11.7"
@@ -4795,6 +4783,13 @@ Lockfile:
     version "2.7.1"
     resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
     integrity sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
+    dependencies:
+      glob "^7.1.3"
+  
+  rimraf@^3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
+    integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
     dependencies:
       glob "^7.1.3"
   

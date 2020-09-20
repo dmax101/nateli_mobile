@@ -16,7 +16,20 @@ const config = {
             Authorization: 'Bearer PG4WVUCICSUSXDDKHF76RXPPOOMMOR2V'
         },
         v: '20200728',
+    },
+    mqttApi: {
+        baseURL: 'csilab-broker.inatel.br',
+        port: '8883',
+        user: 'csilab',
+        password: 'WhoAmI#2020'
+    },
+    mqttApiDev: {
+        baseURL: '192.168.0.105',
+        port: '1883',
+        user: '',
+        password: ''
     }
+
 }
 
 export default config;

@@ -14,6 +14,7 @@ import Speak from '../../services/speakService';
 import api from '../../services/api';
 import config from '../../configs';
 import analysis from '../../services/analysis';
+import mqttService from '../../services/mqttService';
 
 function VoiceButton() {
 
@@ -151,7 +152,9 @@ function VoiceButton() {
     }
     
     async function handleVoiceCommandOff() {
-        info('event', 'Button pressed off');        
+        info('event', 'Button pressed off');
+        info('mqtt','sending test to mqtt');
+        mqttService('test', 'Danilo');
     }
 
     return (
