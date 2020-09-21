@@ -154,7 +154,8 @@ function VoiceButton() {
     async function handleVoiceCommandOff() {
         info('event', 'Button pressed off');
         info('mqtt','sending test to mqtt');
-        mqttService('test', 'Danilo');
+        //mqttService('danilo/oi', 'Teste');
+        mqttService('kfjskwje332', 'World');
     }
 
     return (

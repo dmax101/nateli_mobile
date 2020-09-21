@@ -18,13 +18,13 @@ const config = {
         v: '20200728',
     },
     mqttApi: {
-        baseURL: 'csilab-broker.inatel.br',
+        host: 'csilab-broker.inatel.br',
         port: '8883',
         user: 'csilab',
         password: 'WhoAmI#2020'
     },
     mqttApiDev: {
-        baseURL: '192.168.0.105',
+        host: '192.168.0.110',
         port: '1883',
         user: '',
         password: ''

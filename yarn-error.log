@@ -1,8 +1,8 @@
 Arguments: 
-  /home/dmax/.nvm/versions/node/v14.8.0/bin/node /mnt/c/Program Files (x86)/Yarn/bin/yarnpkg add @types/react-native-mqtt
+  /usr/local/Cellar/node/14.8.0/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add @types/react-native-paho-mqtt
 
 PATH: 
-  /home/dmax/.vscode-server/bin/e790b931385d72cf5669fcefc51cdf65990efa5d/bin:/home/dmax/.local/bin:/home/dmax/.nvm/versions/node/v14.8.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/Yarn/bin/:/mnt/d/Strawberry/c/bin:/mnt/d/Strawberry/perl/site/bin:/mnt/d/Strawberry/perl/bin:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dvrib/AppData/Local/Programs/Python/Python36/Scripts/:/mnt/c/Users/dvrib/AppData/Local/Programs/Python/Python36/:/mnt/c/Users/dvrib/AppData/Local/Microsoft/WindowsApps:/mnt/d/Users/dvrib/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/dvrib/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/dvrib/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/dvrib/AppData/Roaming/npm:/mnt/c/Users/dvrib/AppData/Local/Yarn/bin:/mnt/d/src/flutter/bin:/mnt/c/Users/dvrib/AppData/Local/Android/Sdk/tools:/mnt/d/Program Files/JetBrains/PyCharm Community Edition 2020.2/bin:/mnt/c/Users/dvrib/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/snap/bin
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
 
 Yarn version: 
   1.22.4
@@ -11,16 +11,16 @@ Node version:
   14.8.0
 
 Platform: 
-  linux x64
+  darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2freact-native-mqtt: Not found
-      at Request.params.callback [as _callback] (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:66096:18)
-      at Request.self.callback (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:140748:22)
+  Error: https://registry.yarnpkg.com/@types%2freact-native-paho-mqtt: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:66987:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:140748:22)
       at Request.emit (events.js:314:20)
-      at Request.<anonymous> (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:141720:10)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141720:10)
       at Request.emit (events.js:314:20)
-      at IncomingMessage.<anonymous> (/mnt/c/Program Files (x86)/Yarn/lib/cli.js:141642:12)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141642:12)
       at Object.onceWrapper (events.js:420:28)
       at IncomingMessage.emit (events.js:326:22)
       at endReadableNT (_stream_readable.js:1244:12)
@@ -57,9 +57,11 @@ npm manifest:
       "react-native": "^0.62.2",
       "react-native-gesture-handler": "~1.6.0",
       "react-native-mqtt": "^0.1.0-beta4",
+      "react-native-paho-mqtt": "^0.1.1",
       "react-native-tts": "^3.2.0",
       "react-native-web": "~0.11.7",
-      "rimraf": "^3.0.2"
+      "rimraf": "^3.0.2",
+      "sp-react-native-mqtt": "^0.4.25"
     },
     "devDependencies": {
       "@babel/core": "^7.8.6",
@@ -2474,6 +2476,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
     integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
   
+  events@^1.1.1:
+    version "1.1.1"
+    resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
+    integrity sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
+  
   exec-sh@^0.3.2:
     version "0.3.4"
     resolved "https://registry.yarnpkg.com/exec-sh/-/exec-sh-0.3.4.tgz#3a018ceb526cc6f6df2bb504b2bfe8e3a4934ec5"
@@ -4555,6 +4562,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-native-mqtt/-/react-native-mqtt-0.1.0-beta4.tgz#b96e17745fe31ae21abe2553cbbd8bee70fd5110"
     integrity sha1-uW4XdF/jGuIaviVTy72L7nD9URA=
   
+  react-native-paho-mqtt@^0.1.1:
+    version "0.1.1"
+    resolved "https://registry.yarnpkg.com/react-native-paho-mqtt/-/react-native-paho-mqtt-0.1.1.tgz#181d5d9fcbee3c25e560e4aa3aeba5b0df3910e8"
+    integrity sha1-GB1dn8vuPCXlYOSqOuulsN85EOg=
+    dependencies:
+      events "^1.1.1"
+  
   react-native-safe-area-context@~3.0.7:
     version "3.0.7"
     resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.0.7.tgz#0f53de7a30d626d82936000f3f6db374ecc4b800"
@@ -5089,6 +5103,11 @@ Lockfile:
     version "0.6.1"
     resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
     integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+  
+  sp-react-native-mqtt@^0.4.25:
+    version "0.4.25"
+    resolved "https://registry.yarnpkg.com/sp-react-native-mqtt/-/sp-react-native-mqtt-0.4.25.tgz#7cfdaf3a8629443702d820dd5dc899b7167c0468"
+    integrity sha512-cR1vF6esV92TdHCDrKDcDC7mAY7qAAENW5/4fyROmSqsnMm01PDdvFsad48u6KCy1FvpcooGldYMiTjFDTZihg==
   
   split-string@^3.0.1, split-string@^3.0.2:
     version "3.1.0"
