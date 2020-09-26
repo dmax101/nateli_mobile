@@ -24,8 +24,8 @@ const config = {
         password: 'WhoAmI#2020'
     },
     mqttApiDev: {
-        host: '192.168.0.110',
-        port: '1883',
+        host: 'mqtt://192.168.0.108',
+        port: 1883,
         user: '',
         password: ''
     }

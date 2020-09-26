@@ -15,6 +15,7 @@ import api from '../../services/api';
 import config from '../../configs';
 import analysis from '../../services/analysis';
 import mqttService from '../../services/mqttService';
+import mqttServiceDev from '../../services/mqttServiceDev';
 
 function VoiceButton() {
 
@@ -153,14 +154,18 @@ function VoiceButton() {
     
     async function handleVoiceCommandOff() {
         info('event', 'Button pressed off');
-        info('mqtt','sending test to mqtt');
-        //mqttService('danilo/oi', 'Teste');
-        mqttService('kfjskwje332', 'World');
+           //mqttService('danilo/oi', 'Teste');
+        mqttServiceDev('kfjskwje332', 'Danilo');
+        //mqttServiceDev('kfjskwje332', 'World');
+
+
     }
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPressIn={handleVoiceCommandOn} onPressOut={handleVoiceCommandOff}>
+            <TouchableOpacity
+             //onPressIn={handleVoiceCommandOn}
+             onPressOut={handleVoiceCommandOff}>
                 <Image source={voiceButtonIcon} resizeMode="contain"/>
             </TouchableOpacity>
         </View>
