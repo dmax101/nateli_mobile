@@ -15,6 +15,7 @@
     "@taoqf/react-native-mqtt": "^3.0.4",
     "@types/expo": "^33.0.1",
     "@types/invariant": "^2.2.33",
+    "@types/node": "^14.11.2",
     "axios": "^0.19.2",
     "babel-preset-expo": "^8.2.3",
     "expo": "^38.0.9",

@@ -8,7 +8,7 @@ function mqttService(tpc:string, msg:string) {
     
     info('mqtt', `Trying to send message "${msg}" on topic "${tpc}".`)
 
-    const mqttConf = config.mqttApiDev
+    const mqttConf = config.mqttApiDev;
 
     const location = {
         hostname: mqttConf.host,
@@ -31,10 +31,10 @@ function mqttService(tpc:string, msg:string) {
 
     // connect the client
     const us = {
-        //timeout: 120,
+        //timeout: 60,
         //userName: mqttConf.user,
         //password: mqttConf.password,
-        //useSSL: false,
+        //useSSL: true,
         onSuccess: onConnect,
         onFailure: onConnectionLost,
         //hosts: 'ws://broker.hivemq.com',
@@ -64,16 +64,14 @@ function mqttService(tpc:string, msg:string) {
 
     // called when the client loses its connection
     function onConnectionLost(responseObject: { errorCode: number; errorMessage: string; }) {
-    if (responseObject.errorCode !== 0) {
-        info('mqtt', 'Lost the connection', responseObject.errorMessage)
-        //console.log("onConnectionLost:"+responseObject.errorMessage);
-    }
+        if (responseObject.errorCode !== 0) {
+            info('mqtt', 'Lost the connection', responseObject.errorMessage)
+        }
     }
 
     // called when a message arrives
     function onMessageArrived(message: { payloadString: string; }) {
-        info('mqtt', 'Message Arrived', message.payloadString);
-        //console.log("onMessageArrived:"+message.payloadString);
+        info('mqtt', `Message Arrived: ${message.payloadString}`);
     }
 }
 

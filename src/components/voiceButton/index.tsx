@@ -16,6 +16,7 @@ import config from '../../configs';
 import analysis from '../../services/analysis';
 import mqttService from '../../services/mqttService';
 import mqttServiceDev from '../../services/mqttServiceDev';
+import mqttTao from '../../services/mqttTao';
 
 function VoiceButton() {
 
@@ -155,6 +156,7 @@ function VoiceButton() {
     async function handleVoiceCommandOff() {
         info('event', 'Button pressed off');
         await mqttService('kfjskwje332', 'Danilo');
+        //mqttTao('kfjskwje332', 'Tao');
 
 
     }

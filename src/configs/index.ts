@@ -19,23 +19,39 @@ const config = {
     },
     mqttApi: {
         host: 'csilab-broker.inatel.br',
-        port: '8883',
+        port: 8883,
         user: 'csilab',
-        password: 'WhoAmI#2020'
+        password: 'WhoAmI#2020',
+        protocol: 'mqtt'
     },
     mqttApiDev: {
         host: 'broker.hivemq.com',
         port: 8000,
         user: '',
-        password: ''
+        password: '',
+        protocol: 'ws'
     },
     mqttApiDev2: {
         host: '192.168.0.108',
         port: 1883,
         user: '',
-        password: ''
+        password: '',
+        protocol: 'mqtt'
+    },
+    mqttApiDev3: {
+        host: 'test.mosquitto.org',
+        port: 1883,
+        user: '',
+        password: '',
+        protocol: 'mqtt'
+    },
+    mqttApiDev4: {
+        host: 'mqtt.eclipse.org',
+        port: 1883,
+        user: '',
+        password: '',
+        protocol: 'mqtt'
     }
-
 }
 
 export default config;
