@@ -6,10 +6,10 @@ function getDate() {
     const { locale } = config;
 
     const completeDate = {
-        date: dateNow.toLocaleDateString(locale, { day: 'numeric' }),
-        month: dateNow.toLocaleDateString(locale, { month: 'long' }),
-        year: dateNow.toLocaleDateString(locale, { year: 'numeric' }),
-        weekDay: dateNow.toLocaleDateString(locale, { weekday: 'long' }),
+        date: Number(dateNow.toLocaleDateString(locale, { day: 'numeric' })),
+        month: String(dateNow.toLocaleDateString(locale, { month: 'long' })),
+        year: Number(dateNow.toLocaleDateString(locale, { year: 'numeric' })),
+        weekDay: String(dateNow.toLocaleDateString(locale, { weekday: 'long' })),
     }
 
     return completeDate;

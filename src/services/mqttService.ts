@@ -18,13 +18,9 @@ function mqttService(tpc:string, msg:string) {
     // Create a client instance
     try {
         var client = new Paho.Client(location.hostname, Number(location.port), 'ClientId');
-        //var client = new Paho.Client(location.hostname, Number(location.port), 'Celular');
-        //var client = new Paho.Client('mqtt://test.mosquitto.org:1883', 'test.mosquitto.org', 1883, '/mqtt', 'clientId');
         info('mqtt', `Starting mqtt connection on ${location.hostname}:${location.port}`)
         info('mqtt', `Connection status: ${client.isConnected()}`)
         console.log(client);
-        
-        
     } catch (error) {
         info('mqtt', 'Error', error)
     }
@@ -41,8 +37,8 @@ function mqttService(tpc:string, msg:string) {
         //useSSL: false,
         onSuccess: onConnect,
         onFailure: onConnectionLost,
-        //hosts: mqttConf.host,
-        //ports: mqttConf.port,
+        //hosts: 'ws://broker.hivemq.com',
+        //ports: 1883,
         //reconnect: true,
         //mqttVersion: 3,
         //mqttVersionExplicit: true
@@ -63,9 +59,7 @@ function mqttService(tpc:string, msg:string) {
         message.destinationName = tpc;
         client.send(message);
 
-        info('mqtt', `Send message "${msg}" on topic ${tpc}.`)
-        client.unsubscribe(tpc);
-        console.log(client.isConnected());
+        info('mqtt', `Sending message "${msg}" on topic ${tpc}.`)
     }
 
     // called when the client loses its connection

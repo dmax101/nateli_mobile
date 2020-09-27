@@ -24,7 +24,13 @@ const config = {
         password: 'WhoAmI#2020'
     },
     mqttApiDev: {
-        host: 'mqtt://192.168.0.108',
+        host: 'broker.hivemq.com',
+        port: 8000,
+        user: '',
+        password: ''
+    },
+    mqttApiDev2: {
+        host: '192.168.0.108',
         port: 1883,
         user: '',
         password: ''

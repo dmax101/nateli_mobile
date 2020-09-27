@@ -1,19 +1,82 @@
 import React from 'react';
-import mqtt from '@taoqf/react-native-mqtt';
+import config from '../configs';
 import info from '../utils/info';
+import Paho from "../lib/mqttjs";
 
-function mqttServiceDev(topic:string, message:string) {
-    info('mqtt', 'Starting MQTT Service');
+function mqttService(tpc:string, msg:string) {
+    info('mqtt', 'Starting mqtt service')
+    
+    info('mqtt', `Trying to send message "${msg}" on topic "${tpc}".`)
 
-    var client = mqtt.connect('mqtt://192.168.0.108');
-    client.subscribe('kfjskwje332')
+    const mqttConf = config.mqttApiDev
 
-    client.on('message', (topic, payload) => {
-        alert([topic, payload].join(': '));
-        client.end();
-    })
+    const location = {
+        hostname: mqttConf.host,
+        port: mqttConf.port
+    }
 
-    client.publish('kfjskwje332', 'Oi, tudo bem!');
+    // Create a client instance
+    try {
+        var client = new Paho.Client(location.hostname, Number(location.port), 'ClientId');
+        info('mqtt', `Starting mqtt connection on ${location.hostname}:${location.port}`)
+        info('mqtt', `Connection status: ${client.isConnected()}`)
+        console.log(client);
+    } catch (error) {
+        info('mqtt', 'Error', error)
+    }
+
+    // set callback handlers
+    client.onConnectionLost = onConnectionLost;
+    client.onMessageArrived = onMessageArrived;
+
+    // connect the client
+    const us = {
+        //timeout: 120,
+        //userName: mqttConf.user,
+        //password: mqttConf.password,
+        //useSSL: false,
+        onSuccess: onConnect,
+        onFailure: onConnectionLost,
+        //hosts: 'ws://broker.hivemq.com',
+        //ports: 1883,
+        //reconnect: true,
+        //mqttVersion: 3,
+        //mqttVersionExplicit: true
+      };
+    client.connect(us);
+
+    // called when the client connects
+
+    function onConnect() {
+        // Once a connection has been made, make a subscription and send a message.
+        info('mqtt', 'Connection established')
+        try {
+            client.subscribe(tpc);
+        } catch (error) {
+            info('mqtt', 'Impossible to connect', error);
+        }
+        const message = new Paho.Message(msg);
+        message.destinationName = tpc;
+        client.send(message);
+
+        info('mqtt', `Sending message "${msg}" on topic ${tpc}.`)
+    }
+
+    // called when the client loses its connection
+    function onConnectionLost(responseObject: { errorCode: number; errorMessage: string; }) {
+    if (responseObject.errorCode !== 0) {
+        info('mqtt', 'Lost the connection', responseObject.errorMessage)
+        //console.log("onConnectionLost:"+responseObject.errorMessage);
+    }
+    }
+
+    // called when a message arrives
+    function onMessageArrived(message: { payloadString: string; }) {
+        info('mqtt', 'Message Arrived', message.payloadString);
+        //console.log("onMessageArrived:"+message.payloadString);
+    }
 }
 
-export default mqttServiceDev;
+
+
+export default mqttService;

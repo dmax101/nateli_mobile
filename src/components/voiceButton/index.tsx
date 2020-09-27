@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, Button } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Audio } from 'expo-av';
 import * as Permissions from 'expo-permissions';
@@ -154,9 +154,7 @@ function VoiceButton() {
     
     async function handleVoiceCommandOff() {
         info('event', 'Button pressed off');
-           //mqttService('danilo/oi', 'Teste');
-        mqttServiceDev('kfjskwje332', 'Danilo');
-        //mqttServiceDev('kfjskwje332', 'World');
+        await mqttService('kfjskwje332', 'Danilo');
 
 
     }
