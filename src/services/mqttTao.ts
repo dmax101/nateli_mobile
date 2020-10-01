@@ -1,5 +1,5 @@
 import React from 'react';
-import mqtt, { IClientOptions } from '@taoqf/react-native-mqtt';
+import mqtt from '@taoqf/react-native-mqtt';
 import config from '../configs';
 import info from '../utils/info';
 
@@ -9,14 +9,14 @@ function mqttTao(topic:string, message:string) {
     
     info('mqtt', `Trying to send message "${message}" on topic "${topic}".`)
 
-    const mqttBroker = config.mqttApiDev4;
+    const mqttBroker = config.mqttApiDev3;
 
-    const clientOptions: IClientOptions = {
+    const clientOptions: mqtt.IClientOptions = {
         //port: mqttBroker.port,
         //host: mqttBroker.host,
         //hostname: mqttBroker.host,
         //path: '',
-        //protocol: "ws",
+        protocol: "mqtt",
         //clientId: 'NateliMobile',
         //protocolId: 'MQTT',
         //clean: true,
@@ -29,13 +29,15 @@ function mqttTao(topic:string, message:string) {
         // }]
     }
     
-    const uri = mqttBroker.protocol + '://' + mqttBroker.host + ':'+ mqttBroker.port;
+    //const uri = mqttBroker.protocol + '://' + mqttBroker.host + ':'+ mqttBroker.port;
+    const uri = mqttBroker.host + ':'+ mqttBroker.port;
     info('mqtt', `Connecting to: ${uri}`);
-    const client = mqtt.connect(uri, clientOptions);
+
+    const client = mqtt.connect(clientOptions);
 
     client.on('connect', () => {
         info('mqtt', 'Connected')
-        client.subscribe(topic, (err) => {
+        client.subscribe(topic, (err: any) => {
           if (!err) {
             client.publish(topic, message);
           } else {

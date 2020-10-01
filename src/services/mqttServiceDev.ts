@@ -8,7 +8,7 @@ function mqttService(tpc:string, msg:string) {
     
     info('mqtt', `Trying to send message "${msg}" on topic "${tpc}".`)
 
-    const mqttConf = config.mqttApiDev
+    const mqttConf = config.mqttApiDev4
 
     const location = {
         hostname: mqttConf.host,

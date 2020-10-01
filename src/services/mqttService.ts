@@ -17,7 +17,7 @@ function mqttService(tpc:string, msg:string) {
 
     // Create a client instance
     try {
-        var client = new Paho.Client(location.hostname, Number(location.port), 'ClientId');
+        var client = new Paho.Client(location.hostname, Number(location.port), '/mqtt', 'ClientId');
         info('mqtt', `Starting mqtt connection on ${location.hostname}:${location.port}`)
         info('mqtt', `Connection status: ${client.isConnected()}`)
         console.log(client);
